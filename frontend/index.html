@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Dr. Jubair's Clinic – Expert Healthcare & Appointments</title>
+  <meta name="description" content="Book an appointment at Dr. Jubair's Clinic. We offer general consultations, skin care, dental, and more. Trusted by hundreds of patients. Easy online booking." />
+  <meta name="keywords" content="clinic, doctor, appointment, healthcare, consultation, skin care, dental" />
+  <meta name="author" content="Dr. Jubair's Clinic" />
+  <meta property="og:title" content="Dr. Jubair's Clinic – Expert Healthcare" />
+  <meta property="og:description" content="Book your appointment online – fast, easy, and secure." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Dr. Jubair's Clinic Home">
+        <span class="logo-icon">⚕</span>
+        <span class="logo-text">Dr. Jubair's <span class="logo-accent">Clinic</span></span>
+      </a>
+      <ul class="nav-links" role="navigation" aria-label="Main navigation">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#booking">Book</a></li>
+      </ul>
+      <a href="#booking" class="nav-cta" id="navBookBtn">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ Trusted by 500+ Patients</div>
+      <h1 class="hero-title fade-up">
+        Your Health,<br/>
+        <span class="hero-gradient-text">Our Priority</span>
+      </h1>
+      <p class="hero-sub fade-up">
+        Expert care. Easy booking. Same-day appointments available.<br/>
+        Experience healthcare that puts <strong>you</strong> first.
+      </p>
+      <div class="hero-actions fade-up">
+        <a href="#booking" class="btn-primary" id="heroBookBtn">Book Appointment</a>
+        <a href="#services" class="btn-ghost">Our Services</a>
+      </div>
+      <div class="hero-stats fade-up">
+        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Happy Patients</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">8+</span><span class="stat-label">Years Experience</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">Specialties</span></div>
+      </div>
+    </div>
+    <div class="hero-image-wrap fade-up">
+      <div class="hero-card-float hero-card-1">
+        <span>🕐</span> Next slot: <strong>Today 3:00 PM</strong>
+      </div>
+      <div class="hero-img-circle">
+        <img
+          src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=80"
+          alt="Friendly doctor at Dr. Jubair's Clinic"
+          width="400" height="400"
+          loading="eager"
+        />
+      </div>
+      <div class="hero-card-float hero-card-2">
+        <span>⭐</span> Rated <strong>4.9/5</strong> by patients
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">What We Offer</span>
+        <h2>Our Specialties</h2>
+        <p>Comprehensive healthcare services tailored to your needs</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up" id="svc-general">
+          <div class="service-icon">🩺</div>
+          <h3>General Consultation</h3>
+          <p>Routine checkups, diagnosis, and treatment plans from our experienced physicians.</p>
+          <a href="#booking" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card fade-up" id="svc-skin">
+          <div class="service-icon">✨</div>
+          <h3>Skin & Cosmetics</h3>
+          <p>Advanced skin treatments, anti-aging therapy, and cosmetic consultations.</p>
+          <a href="#booking" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card fade-up" id="svc-dental">
+          <div class="service-icon">🦷</div>
+          <h3>Dental Care</h3>
+          <p>Professional cleaning, fillings, extractions, and smile enhancement treatments.</p>
+          <a href="#booking" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card fade-up" id="svc-child">
+          <div class="service-icon">👶</div>
+          <h3>Child Health</h3>
+          <p>Pediatric consultations, vaccinations, and growth monitoring for your little ones.</p>
+          <a href="#booking" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card fade-up" id="svc-womens">
+          <div class="service-icon">🌸</div>
+          <h3>Women's Health</h3>
+          <p>Gynecological care, prenatal support, and women's wellness programs.</p>
+          <a href="#booking" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card fade-up" id="svc-lab">
+          <div class="service-icon">🔬</div>
+          <h3>Lab & Diagnostics</h3>
+          <p>Full blood panels, urine analysis, ECG, and rapid test results in-clinic.</p>
+          <a href="#booking" class="service-link">Book Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">Patient Reviews</span>
+        <h2>What Our Patients Say</h2>
+        <p>Real experiences from real patients who trust us with their health</p>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card fade-up" id="review-1">
+          <div class="t-top">
+            <div class="t-avatar" aria-label="Patient Ayesha K.">AK</div>
+            <div>
+              <div class="t-name">Ayesha K.</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+            </div>
+            <div class="t-badge">Verified</div>
+          </div>
+          <p class="t-text">"The booking process was incredibly smooth. I got an appointment the same day, and the doctor was thorough and kind. Highly recommended!"</p>
+          <div class="t-service">General Consultation</div>
+        </div>
+
+        <div class="testimonial-card fade-up featured-review" id="review-2">
+          <div class="t-top">
+            <div class="t-avatar" aria-label="Patient Rafi M.">RM</div>
+            <div>
+              <div class="t-name">Rafi M.</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+            </div>
+            <div class="t-badge">Verified</div>
+          </div>
+          <p class="t-text">"Dr. Jubair is exceptional. He listened patiently, explained everything clearly, and the treatment worked perfectly. The online booking saved me so much time!"</p>
+          <div class="t-service">Skin & Cosmetics</div>
+        </div>
+
+        <div class="testimonial-card fade-up" id="review-3">
+          <div class="t-top">
+            <div class="t-avatar" aria-label="Patient Nadia H.">NH</div>
+            <div>
+              <div class="t-name">Nadia H.</div>
+              <div class="t-stars" aria-label="4 out of 5 stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star half">★</span>
+              </div>
+            </div>
+            <div class="t-badge">Verified</div>
+          </div>
+          <p class="t-text">"Brought my 3-year-old here for a checkup. The staff was incredibly patient and gentle. My son didn't cry at all! Will definitely be our family clinic."</p>
+          <div class="t-service">Child Health</div>
+        </div>
+
+        <div class="testimonial-card fade-up" id="review-4">
+          <div class="t-top">
+            <div class="t-avatar" aria-label="Patient Omar S.">OS</div>
+            <div>
+              <div class="t-name">Omar S.</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+            </div>
+            <div class="t-badge">Verified</div>
+          </div>
+          <p class="t-text">"Lab results came back within hours. The diagnostic team is top-notch. Clean, modern facility and absolutely professional staff."</p>
+          <div class="t-service">Lab & Diagnostics</div>
+        </div>
+
+        <div class="testimonial-card fade-up" id="review-5">
+          <div class="t-top">
+            <div class="t-avatar" aria-label="Patient Sadia R.">SR</div>
+            <div>
+              <div class="t-name">Sadia R.</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+            </div>
+            <div class="t-badge">Verified</div>
+          </div>
+          <p class="t-text">"The dental team here is amazing. No pain, great results, and they explained every step. I've been avoiding dentists for years — wish I found this place sooner!"</p>
+          <div class="t-service">Dental Care</div>
+        </div>
+
+      </div>
+
+      <div class="reviews-summary fade-up">
+        <div class="reviews-avg">4.9</div>
+        <div class="reviews-stars-large" aria-label="4.9 out of 5 average rating">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="reviews-count">Based on 120+ patient reviews</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOKING FORM ===== -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-wrap">
+        <div class="booking-info fade-up">
+          <span class="section-tag">Book Online</span>
+          <h2>Schedule Your Visit</h2>
+          <p>Same-day appointments available. Fill out the form and we'll confirm within 15 minutes.</p>
+          <ul class="booking-perks">
+            <li>✅ Free first consultation</li>
+            <li>✅ No hidden charges</li>
+            <li>✅ Instant confirmation via WhatsApp</li>
+            <li>✅ Easy rescheduling</li>
+          </ul>
+          <div class="clinic-hours">
+            <h4>Clinic Hours</h4>
+            <div class="hours-row"><span>Mon – Fri</span><span>9:00 AM – 7:00 PM</span></div>
+            <div class="hours-row"><span>Saturday</span><span>9:00 AM – 3:00 PM</span></div>
+            <div class="hours-row closed"><span>Sunday</span><span>Closed</span></div>
+          </div>
+        </div>
+
+        <div class="booking-form-wrap fade-up">
+          <form id="apptForm" novalidate autocomplete="off">
+            <div class="form-group">
+              <label for="fname">Full Name <span class="req">*</span></label>
+              <input type="text" id="fname" name="name" placeholder="e.g. Ahmed Rahman" autocomplete="name" />
+              <span class="form-err" id="fnameErr" role="alert">Please enter your full name</span>
+            </div>
+
+            <div class="form-group">
+              <label for="fphone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="fphone" name="phone" placeholder="e.g. 01711-123456" autocomplete="tel" />
+              <span class="form-err" id="fphoneErr" role="alert">Enter a valid 10+ digit phone number</span>
+            </div>
+
+            <div class="form-group">
+              <label for="fservice">Service <span class="req">*</span></label>
+              <select id="fservice" name="service">
+                <option value="">Select a service…</option>
+                <option value="General Consultation">General Consultation</option>
+                <option value="Skin & Cosmetics">Skin &amp; Cosmetics</option>
+                <option value="Dental Care">Dental Care</option>
+                <option value="Child Health">Child Health</option>
+                <option value="Women's Health">Women's Health</option>
+                <option value="Lab & Diagnostics">Lab &amp; Diagnostics</option>
+              </select>
+              <span class="form-err" id="fserviceErr" role="alert">Please select a service</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fdate">Date <span class="req">*</span></label>
+                <input type="date" id="fdate" name="date" />
+                <span class="form-err" id="fdateErr" role="alert">Please select a date</span>
+              </div>
+              <div class="form-group">
+                <label for="ftime">Time Slot <span class="req">*</span></label>
+                <select id="ftime" name="time">
+                  <option value="">Pick a time…</option>
+                </select>
+                <span class="form-err" id="ftimeErr" role="alert">Please select a time slot</span>
+              </div>
+            </div>
+
+            <!-- Slot availability legend -->
+            <div class="slot-legend">
+              <span class="slot-dot available"></span> Available
+              <span class="slot-dot booked"></span> Booked
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <span id="submitLabel">Confirm Appointment</span>
+              <span id="submitLoader" class="btn-loader" aria-hidden="true" style="display:none">
+                <span class="spinner"></span> Booking…
+              </span>
+            </button>
+          </form>
+
+          <!-- Success State -->
+          <div id="formSuccess" class="form-success" style="display:none" role="alert" aria-live="polite">
+            <div class="success-icon">🎉</div>
+            <h3>Appointment Confirmed!</h3>
+            <p id="successMsg">We've received your booking and will confirm shortly via WhatsApp.</p>
+            <button class="btn-ghost" id="bookAnotherBtn" onclick="resetForm()">Book Another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a
+    id="whatsappFloat"
+    href="https://wa.me/8801700000000?text=Hello%2C%20I%20want%20to%20book%20an%20appointment"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="Chat with us on WhatsApp"
+    title="Chat with us on WhatsApp"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.103 1.504 5.832L.057 23.1c-.079.29.194.557.483.468l5.382-1.404A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.812 9.812 0 01-5.003-1.369l-.359-.213-3.714.969.993-3.614-.234-.371A9.819 9.819 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+    </svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">⚕</span>
+        <span class="logo-text">Dr. Jubair's <span class="logo-accent">Clinic</span></span>
+      </div>
+      <p class="footer-copy">© 2026 Dr. Jubair's Clinic. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="admin.html">Admin</a>
+        <a href="#booking">Book</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/form.js"></script>
+</body>
+</html>

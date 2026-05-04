@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Dr. Jubair's Clinic</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #2563eb; --accent: #06b6d4; --success: #10b981;
+      --danger: #ef4444; --warning: #f59e0b;
+      --bg: #0a0f1e; --bg-card: #0f1629; --border: rgba(255,255,255,0.08);
+      --text: #f1f5f9; --text-muted: #94a3b8; --font: 'Inter', system-ui, sans-serif;
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* HEADER */
+    .admin-header {
+      background: rgba(15,22,41,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .admin-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; }
+    .admin-badge {
+      background: rgba(239,68,68,0.15); color: #f87171;
+      border: 1px solid rgba(239,68,68,0.3);
+      padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700;
+    }
+    .header-actions { display: flex; gap: 12px; align-items: center; }
+    .btn-sm {
+      background: rgba(37,99,235,0.15); color: #93c5fd;
+      border: 1px solid rgba(37,99,235,0.3);
+      padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+      cursor: pointer; font-family: var(--font); transition: background 0.2s;
+    }
+    .btn-sm:hover { background: rgba(37,99,235,0.25); }
+
+    /* STATS */
+    .admin-stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px; padding: 28px 32px 0;
+    }
+    .stat-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px 24px;
+    }
+    .stat-card-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .stat-card-num { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; }
+    .stat-card-num.blue { color: #60a5fa; }
+    .stat-card-num.yellow { color: var(--warning); }
+    .stat-card-num.green { color: var(--success); }
+    .stat-card-num.red { color: var(--danger); }
+
+    /* FILTERS */
+    .admin-filters {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      padding: 24px 32px 0;
+    }
+    .filter-input {
+      background: rgba(255,255,255,0.05); border: 1.5px solid var(--border);
+      border-radius: 10px; color: var(--text); font-family: var(--font);
+      font-size: 14px; padding: 10px 16px; outline: none;
+      transition: border-color 0.2s; width: 220px;
+    }
+    .filter-input:focus { border-color: var(--primary); }
+    .filter-input::placeholder { color: #475569; }
+    .filter-select {
+      background: rgba(255,255,255,0.05); border: 1.5px solid var(--border);
+      border-radius: 10px; color: var(--text); font-family: var(--font);
+      font-size: 14px; padding: 10px 16px; outline: none; cursor: pointer;
+    }
+    .filter-select option { background: #0f1629; }
+
+    /* TABLE */
+    .table-wrap { padding: 20px 32px 60px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    thead th {
+      text-align: left; font-size: 12px; font-weight: 700;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 14px 16px; border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.15s;
+    }
+    tbody tr:hover { background: rgba(255,255,255,0.03); }
+    tbody td { padding: 14px 16px; font-size: 14px; color: var(--text-muted); vertical-align: middle; }
+    tbody td:first-child { color: var(--text); font-weight: 600; }
+
+    .status-badge {
+      display: inline-block; padding: 4px 12px; border-radius: 999px;
+      font-size: 12px; font-weight: 700;
+    }
+    .status-badge.Pending   { background: rgba(245,158,11,0.12); color: var(--warning);  border: 1px solid rgba(245,158,11,0.3); }
+    .status-badge.Confirmed { background: rgba(16,185,129,0.12); color: var(--success);  border: 1px solid rgba(16,185,129,0.3); }
+    .status-badge.Cancelled { background: rgba(239,68,68,0.12);  color: var(--danger);   border: 1px solid rgba(239,68,68,0.3);  }
+
+    .action-btn {
+      padding: 5px 12px; border-radius: 8px; font-size: 12px; font-weight: 600;
+      cursor: pointer; border: none; font-family: var(--font); margin-right: 6px; transition: opacity 0.2s;
+    }
+    .action-btn:hover { opacity: 0.8; }
+    .btn-confirm { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
+    .btn-cancel  { background: rgba(239,68,68,0.12);  color: var(--danger);  border: 1px solid rgba(239,68,68,0.3);  }
+
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+    .empty-state p { font-size: 1rem; margin-top: 8px; }
+
+    .loading-row td { text-align: center; padding: 60px; color: var(--text-muted); }
+    .spinner-sm {
+      display: inline-block; width: 22px; height: 22px;
+      border: 2.5px solid rgba(255,255,255,0.1); border-top-color: var(--primary);
+      border-radius: 50%; animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #toast {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px);
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 12px 24px; font-size: 14px; font-weight: 600;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5); transition: transform 0.4s cubic-bezier(.36,1.56,.64,1), opacity 0.4s;
+      opacity: 0; z-index: 999; white-space: nowrap;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    @media (max-width: 700px) {
+      .admin-header, .admin-stats, .admin-filters, .table-wrap { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="admin-header">
+    <div class="admin-brand">
+      <span>⚕</span> Dr. Jubair's Clinic
+      <span class="admin-badge">Admin</span>
+    </div>
+    <div class="header-actions">
+      <button class="btn-sm" onclick="loadData()">↻ Refresh</button>
+      <a href="index.html" class="btn-sm" style="text-decoration:none">← Back to Site</a>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <div class="admin-stats" id="statsRow">
+    <div class="stat-card"><div class="stat-card-label">Total Bookings</div><div class="stat-card-num blue" id="statTotal">—</div></div>
+    <div class="stat-card"><div class="stat-card-label">Pending</div><div class="stat-card-num yellow" id="statPending">—</div></div>
+    <div class="stat-card"><div class="stat-card-label">Confirmed</div><div class="stat-card-num green" id="statConfirmed">—</div></div>
+    <div class="stat-card"><div class="stat-card-label">Cancelled</div><div class="stat-card-num red" id="statCancelled">—</div></div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="admin-filters">
+    <input type="text" class="filter-input" id="searchInput" placeholder="Search name or phone…" oninput="applyFilters()" />
+    <select class="filter-select" id="statusFilter" onchange="applyFilters()">
+      <option value="">All Statuses</option>
+      <option value="Pending">Pending</option>
+      <option value="Confirmed">Confirmed</option>
+      <option value="Cancelled">Cancelled</option>
+    </select>
+    <select class="filter-select" id="serviceFilter" onchange="applyFilters()">
+      <option value="">All Services</option>
+      <option value="General Consultation">General Consultation</option>
+      <option value="Skin & Cosmetics">Skin &amp; Cosmetics</option>
+      <option value="Dental Care">Dental Care</option>
+      <option value="Child Health">Child Health</option>
+      <option value="Women's Health">Women's Health</option>
+      <option value="Lab & Diagnostics">Lab &amp; Diagnostics</option>
+    </select>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrap">
+    <table id="adminTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Patient Name</th>
+          <th>Phone</th>
+          <th>Service</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="data">
+        <tr class="loading-row"><td colspan="8"><span class="spinner-sm"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <script type="module">
+    import { supabase } from './js/supabase.js';
+
+    let allData = [];
+
+    async function loadData() {
+      document.getElementById('data').innerHTML =
+        '<tr class="loading-row"><td colspan="8"><span class="spinner-sm"></span></td></tr>';
+
+      const { data, error } = await supabase
+        .from('appointments')
+        .select('*')
+        .order('id', { ascending: false });
+
+      if (error) {
+        document.getElementById('data').innerHTML =
+          '<tr><td colspan="8" style="text-align:center;padding:40px;color:#ef4444;">Failed to load data. Check Supabase config.</td></tr>';
+        return;
+      }
+
+      allData = data || [];
+      updateStats(allData);
+      renderTable(allData);
+    }
+
+    function updateStats(data) {
+      document.getElementById('statTotal').textContent     = data.length;
+      document.getElementById('statPending').textContent   = data.filter(d => d.status === 'Pending').length;
+      document.getElementById('statConfirmed').textContent = data.filter(d => d.status === 'Confirmed').length;
+      document.getElementById('statCancelled').textContent = data.filter(d => d.status === 'Cancelled').length;
+    }
+
+    function renderTable(data) {
+      const tbody = document.getElementById('data');
+      if (!data.length) {
+        tbody.innerHTML = '<tr><td colspan="8"><div class="empty-state"><div style="font-size:2rem">📭</div><p>No appointments found</p></div></td></tr>';
+        return;
+      }
+      tbody.innerHTML = data.map((item, idx) => `
+        <tr id="row-${item.id}">
+          <td style="color:var(--text-muted);font-size:12px">${idx + 1}</td>
+          <td>${escHtml(item.name)}</td>
+          <td><a href="tel:${escHtml(item.phone)}" style="color:var(--accent)">${escHtml(item.phone)}</a></td>
+          <td>${escHtml(item.service)}</td>
+          <td>${escHtml(item.date)}</td>
+          <td>${escHtml(item.time)}</td>
+          <td><span class="status-badge ${escHtml(item.status)}">${escHtml(item.status)}</span></td>
+          <td>
+            ${item.status !== 'Confirmed' ? `<button class="action-btn btn-confirm" onclick="updateStatus(${item.id},'Confirmed')">✓ Confirm</button>` : ''}
+            ${item.status !== 'Cancelled' ? `<button class="action-btn btn-cancel"  onclick="updateStatus(${item.id},'Cancelled')">✕ Cancel</button>`  : ''}
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    window.applyFilters = function () {
+      const search  = document.getElementById('searchInput').value.toLowerCase();
+      const status  = document.getElementById('statusFilter').value;
+      const service = document.getElementById('serviceFilter').value;
+
+      const filtered = allData.filter(d => {
+        const matchSearch  = !search  || d.name.toLowerCase().includes(search) || d.phone.includes(search);
+        const matchStatus  = !status  || d.status === status;
+        const matchService = !service || d.service === service;
+        return matchSearch && matchStatus && matchService;
+      });
+      renderTable(filtered);
+    };
+
+    window.updateStatus = async function (id, newStatus) {
+      const { error } = await supabase
+        .from('appointments')
+        .update({ status: newStatus })
+        .eq('id', id);
+
+      if (error) { showToast('❌ Update failed'); return; }
+
+      const record = allData.find(d => d.id === id);
+      if (record) record.status = newStatus;
+
+      updateStats(allData);
+      applyFilters();
+      showToast(`✅ Appointment ${newStatus.toLowerCase()} successfully`);
+    };
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3200);
+    }
+
+    function escHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    window.loadData = loadData;
+    loadData();
+  </script>
+</body>
+</html>
